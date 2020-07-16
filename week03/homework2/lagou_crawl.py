@@ -52,7 +52,7 @@ class CrawlThread(threading.Thread):
                 max_page = lagou_util.get_max_page(total_count, page_size)
 
                 [self.page_queue.put({city: pn}) for pn in range(2, max_page + 1)]
-                global_var.city_log_info += f'{city.name}总共有 {self.page_queue.qsize()} 页 {total_count} 条数据\n'
+                global_var.city_log_info += f'{city.name}总共有 {total_count} 条数据\n'
                 result = position_result["result"]
                 lagou_util.data_entry_queue(city, result, self.data_queue)
                 result_size = position_result["resultSize"]
