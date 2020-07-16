@@ -1,13 +1,12 @@
 from concurrent.futures import ProcessPoolExecutor, ThreadPoolExecutor
 from eprogress import LineProgress
 from ping3 import ping
-import os
-import sys
 import traceback
+import telnetlib
 import argparse
 import time
-import telnetlib
 import json
+import sys
 
 class Pmap():
     def __init__(self, m, n, f, ip, w, v):
@@ -64,7 +63,8 @@ class Pmap():
             flag = ping_result[0]
             ip = ping_result[1]
 
-            if flag: result_data['ip'].append(ip)
+            if flag: 
+                result_data['ip'].append(ip)
 
         self.result = result_data
     
@@ -93,7 +93,8 @@ class Pmap():
         # 成功后返回延迟秒数，失败返回None或者False
         try:
             p = ping(ip)
-            if p: flag = True 
+            if p: 
+                flag = True 
         except Exception as e:
             raise e
 
@@ -115,7 +116,8 @@ class Pmap():
         progress = Progress(title='telnet progress', total=total)
         for telnet_result in self.get_executor().map(self.exec_telnet, range(1, total + 1)):
             progress.show_progress()
-            if telnet_result: result_data['port'].append(telnet_result)
+            if telnet_result: 
+                result_data['port'].append(telnet_result)
         self.result = result_data
     
     def exec_telnet(self, port):
