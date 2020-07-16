@@ -1,5 +1,5 @@
 from fake_useragent import UserAgent
-from homework2.proxy_ip import ProxyIPPool, ProxyIPPool
+from homework2.proxy_ip import ProxyIPPool
 from homework2 import global_var
 import random
 

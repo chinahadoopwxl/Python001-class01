@@ -1,6 +1,5 @@
 import sys, os
 sys.path.append(os.path.abspath('..'))
-print(sys.path)
 from homework2.mysql_manger import SaveMysqlThread
 from homework2.position_info import Position, City, CounterOfCity
 from homework2.lagou_cookies import CookiesThread
